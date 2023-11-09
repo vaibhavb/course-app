@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import CourseComponent from './CourseComponent';
 import CourseEditComponent from './CourseEditComponent';
+import Timeline from './Timeline';
+import TimelineCard from './TimelineCard';
+import timeAgo from './timeAgo'; 
+
 
 function App() {
   return (
@@ -24,6 +28,20 @@ function App() {
         <h2>Course Management System</h2>
         <CourseComponent />
         <CourseEditComponent />
+        <Timeline>
+            <TimelineCard
+              date="MAR 9 2023"
+              title="Office Visit"ß
+              description="Nicole Schroeder - UCSF Orthopaedic Institute Hand Upper Extremity"
+              timeLabel={timeAgo("MAR 9 2023")}
+            />
+            <TimelineCard
+              date="JUL 21 2023"
+              title="Patient Message"
+              description="Nicole Schroeder - UCSF Orthopaedic Institute Hand Upper Extremity"
+              timeLabel={timeAgo("JUL 21 2023")}
+            />
+        </Timeline>
       </div>
       </div>
 

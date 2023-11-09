@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 function CourseEditComponent() {
     const [email, setEmail] = useState('');
     const [course, setCourse] = useState('');
+    const apiUrl = 'http://127.0.0.1:3000/api/user';
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://127.0.0.1:5000/api/user', {
+        fetch(`${apiUrl}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

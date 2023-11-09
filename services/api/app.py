@@ -5,7 +5,7 @@ from user import User
 
 app = Flask(__name__)
 CORS(app)
-DATABASE = '../db/database.db'
+DATABASE = './db/database.db'
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -28,7 +28,7 @@ def query_db(query, args=(), one=False):
 def init_db():
     with app.app_context():
         db = get_db()
-        with app.open_resource('../db/schema.sql', mode='r') as f:
+        with app.open_resource('./db/schema.sql', mode='r') as f:
             db.cursor().executescript(f.read())
         db.commit()
 
@@ -56,4 +56,4 @@ def add_user():
 
 if __name__ == '__main__':
     init_db()  # Initialize the database
-    app.run(debug=True)
+    app.run(debug=False, port=3000, host='0.0.0.0')

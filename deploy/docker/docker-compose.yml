@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: /Users/vaibhavb/Desktop/Current-Projects/learn/course-app
+      dockerfile: deploy/docker/Dockerfile-backend
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build:
+      context: /Users/vaibhavb/Desktop/Current-Projects/learn/course-app
+      dockerfile: deploy/docker/Dockerfile-frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./services/webapp:/app
+      - /services/webapp/node_modules
+      - /services/webapp/build
